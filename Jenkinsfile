@@ -23,7 +23,7 @@ pipeline {
         stage('Build & Deploy') {
             steps {
                 // Build both backend and frontend, start containers
-                bat 'docker compose up -d --force-recreate --no-deps --build web'
+                bat 'docker-compose up -d --build'
             }
         }
 
