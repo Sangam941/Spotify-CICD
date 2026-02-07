@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     container_name: spotify-clone-app
     ports:
-      - "3000:3000"   # map container's Nginx port 3000 to localhost:3000
+      - "3000:80"   # map container's Nginx port 3000 to localhost:3000
     volumes:
       - ./index.html:/usr/share/nginx/html/index.html      # main HTML
       - ./css:/usr/share/nginx/html/css                    # CSS folder

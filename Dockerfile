@@ -5,6 +5,6 @@ FROM nginx:alpine
 COPY . /usr/share/nginx/html
 
 # Expose port 3000 (default Nginx port)
-EXPOSE 3000
+EXPOSE 80
 
 # Nginx runs by default in the container, no CMD needed
