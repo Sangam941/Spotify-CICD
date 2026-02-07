@@ -1,0 +1,31 @@
+
+services:
+  spotify-clone:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: spotify-clone-app
+    ports:
+      - "3000:80"   # map container's Nginx port 80 to localhost:3000
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html      # main HTML
+      - ./css:/usr/share/nginx/html/css                    # CSS folder
+      - ./js:/usr/share/nginx/html/js                      # JS folder
+      - ./music:/usr/share/nginx/html/music               # music folder
+      - ./playlist-folder-img:/usr/share/nginx/html/playlist-folder-img  # playlist images
+      - ./svg:/usr/share/nginx/html/svg                   # SVG folder
+    environment:
+      - TZ=UTC
+    restart: unless-stopped
+    networks:
+      - spotify-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  spotify-network:
+    driver: bridge
