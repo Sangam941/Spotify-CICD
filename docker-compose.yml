@@ -9,8 +9,10 @@ services:
     ports:
       - "3000:80"   # Host 3000 → container 80
     volumes:
-      # HTML, CSS, JS, SVG
-      - ./music:/usr/share/nginx/html/music
+      # Mount music folder from absolute Windows path
+      - "C:/Users/Acer/Desktop/Spotify-Clone/music:/usr/share/nginx/html/music:cached"
+      # Optional: mount SVG folder
+      - "C:/Users/Acer/Desktop/Spotify-Clone/svg:/usr/share/nginx/html/svg:cached"
     restart: unless-stopped
     networks:
       - spotify-network
