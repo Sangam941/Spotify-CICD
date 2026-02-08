@@ -10,7 +10,7 @@ COPY *.html /usr/share/nginx/html/
 COPY *.css /usr/share/nginx/html/
 
 # Copy JS folder
-COPY js/ /usr/share/nginx/html/js/
+COPY script.js/ /usr/share/nginx/html/js/
 
 # Copy SVG folder
 COPY svg/ /usr/share/nginx/html/svg/
