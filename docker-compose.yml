@@ -8,6 +8,12 @@ services:
     container_name: spotify-clone-app
     ports:
       - "3000:80"   # Host 3000 → container 80
+    volumes:
+      # HTML, CSS, JS, SVG
+      - ./html:/usr/share/nginx/html
+
+      # Music folders (live update, no rebuild)
+      - ./music:/usr/share/nginx/html/music
     restart: unless-stopped
     networks:
       - spotify-network
