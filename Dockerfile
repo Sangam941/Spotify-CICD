@@ -15,4 +15,7 @@ COPY script.js/ /usr/share/nginx/html/js/
 # Copy SVG folder
 COPY svg/ /usr/share/nginx/html/svg/
 
+COPY music/ /usr/share/nginx/html/music/
+
+
 EXPOSE 80

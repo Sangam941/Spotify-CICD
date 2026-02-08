@@ -1,4 +1,4 @@
-# version: '3.8'
+version: '3.8'
 
 services:
   spotify-clone:
@@ -7,12 +7,7 @@ services:
       dockerfile: Dockerfile
     container_name: spotify-clone-app
     ports:
-      - "3000:80"   # Host 3000 → container 80
-    volumes:
-      # Mount music folder from absolute Windows path
-      - "C:/Users/Acer/Desktop/Spotify-Clone/music:/usr/share/nginx/html/music:cached"
-      # Optional: mount SVG folder
-      - "C:/Users/Acer/Desktop/Spotify-Clone/svg:/usr/share/nginx/html/svg:cached"
+      - "3000:80"
     restart: unless-stopped
     networks:
       - spotify-network
